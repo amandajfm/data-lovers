@@ -36,7 +36,7 @@ let monsterList = getPokemons()
 superRare.addEventListener('click', listSuperRare);
 
 function listSuperRare() {
-  let monsterList1 = monsterList.filter(superRareTest => superRareTest["spawn_chance"] <= "0.005");
+  const monsterList1 = monsterList.filter(superRareTest => superRareTest["spawn_chance"] <= "0.005");
   let sum = monsterList1.reduce(function (prevVal, elem) {
     return prevVal + elem.avg_spawns / 13;
   }, 0);
@@ -225,3 +225,44 @@ function orderNameDown() {
    `).join("")}
     `
 }
+
+let divModal = document.querySelector('#pokemons-div');
+divModal.innerHTML = `
+  ${getPokemons().map((monster) => `
+    <div class="each_pokemon" data-name="${monster["name"]}">
+      <img src="${monster["img"]}" class="pokemon-img" data-name="${monster["name"]}" />
+      <div class="text-name">
+        <h3 class="pokemon-name" data-name="${monster["name"]}">${monster["name"]}</h3>
+      </div>
+    </div>
+  `).join("")}
+  `
+
+let elements = document.querySelectorAll('.each_pokemon');
+elements.forEach(function(element) {
+  element.addEventListener('click', function(event){
+    const pokemonName = event.target.dataset.name;
+    const myPokemon = getPokemons(pokemonName)[0];
+    const modal = document.getElementById("modal-pokemon");
+    if(modal) {
+      modal.classList.add('show');
+      modal.addEventListener('click', (e)=> {
+        if(e.target.id == "modal-pokemon" || e.target.className == 'close') {
+          modal.classList.remove('show');
+        }
+      });
+      const modalBody = document.querySelector(".modal");
+      modalBody.innerHTML = `
+      <button class="close">x</button>
+      <img src="${myPokemon.img}" class="pokemon-img"/>
+      <div class="text-name">
+        <h3 class="pokemon-name">Nome: ${myPokemon.name}</h3>
+        <h3 class="pokemon-name">Spawn Chance: ${myPokemon.spawn_chance}</h3>
+        <h3 class="pokemon-name">Spawn Time: ${myPokemon.spawn_time}</h3>
+        <h3 class="pokemon-name">Tipo: ${myPokemon.type}</h3>
+        <h3 class="pokemon-name">Fraquezas: ${myPokemon.type}</h3>
+      </div>      
+      `
+    }
+  });
+})

@@ -4,8 +4,8 @@ function drawChart() {
   var data = google.visualization.arrayToDataTable([
     ['Super Raro', 'Chance'],
     ['Super Raro', 13],
-    ['Raro', 68],
-    ['Comum', 70]
+    ['Raro',     68],
+    ['Comum',      71]
   
   ]);
 
@@ -18,6 +18,7 @@ function drawChart() {
   chart.draw(data, options);
 }
 
+
 google.charts.setOnLoadCallback(drawChart2);
 function drawChart2() {
   var data2 = google.visualization.arrayToDataTable([
@@ -29,7 +30,7 @@ function drawChart2() {
   ]);
 
   var options2 = {
-    title: 'Porcentagem de Pokemons por período do dia',
+    title: 'Porcentagem de Pokemons período do dia',
     is3D: true,
   };
 
