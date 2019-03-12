@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokemon Go</title>
+  <link href="src/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body>
+  <header class="menu-select" id="menuOptions">
+    <figure class="h1-top-nav">
+      <img class="logo-top-nav" src="src/assets/images/logo-pokemon-go.png" alt="Logo Pokemon Go">
+    </figure>
+    <nav class="nav-top">
+      <div class="nav-spawm">
+        <a href="javascript:history.go(0)" class="fas fa-home"></a>
+        <a href="src/dashboard.html" class="fas fa-chart-pie"></a>
+        <ul class="links-header">
+          <li class="dropdown menu">
+            <a href="javascript:void(0)" class="dropbtn">Spawn Chance</a>
+            <div class="dropdown-content">
+              <a id="superRare" href="javascript:void(0)">Super Raro</a>
+              <a id="rare" href="javascript:void(0)">Raro</a>
+              <a id="commom" href="javascript:void(0)">Comum</a>
+            </div>
+          </li>
+          <li class="dropdown menu">
+            <a href="javascript:void(0)" class="dropbtn">Spawn Time</a>
+            <div class="dropdown-content">
+              <a id="morning" href="javascript:void(0)">Manhã</a>
+              <a id="afternoon" href="javascript:void(0)">Tarde</a>
+              <a id="night" href="javascript:void(0)">Noite</a>
+            </div>
+          </li>
+          <li class="dropdown menu">
+            <a href="javascript:void(0)" class="dropbtn">Ordenar</a>
+            <div class="dropdown-content">
+              <a id="orderUp" href="javascript:void(0)"> Alfabética crescente</a>
+              <a id="orderDown" href="javascript:void(0)"> Alfabética decrescente</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <div id="divSearch">
+              <input type="text" id="txtSearch" placeholder="Digite o nome do Pokemon"> </input>
+              <input type="submit" value="Buscar" id="btnsubmit"></input>
+            </div>
+          </li>
+          <ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="pokemons-list">
+      <div id="sum" class="pokemons"></div>
+      <div id="pokemons-div" class="pokemons"></div>
+      <a href="#menuOptions" class="fas fa-arrow-up"></a>
+    </section>
+  </main>
+
+  <div id="modal-pokemon" class="modal-container">
+    <div class="modal">
+      <button class="close">X</button>
+      <h3 class="subtitulo">Cadastre-se aqui</h3>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="src/data/pokemon/pokemon.js"></script>
+  <script type="text/javascript" src="src/main.js"></script>
+</body>
+
+</html>
