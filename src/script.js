@@ -4,8 +4,8 @@ function drawChart() {
   var data = google.visualization.arrayToDataTable([
     ['Super Raro', 'Chance'],
     ['Super Raro', 13],
-    ['Raro',     68],
-    ['Comum',      71]
+    ['Raro', 68],
+    ['Comum', 70]
   
   ]);
 
